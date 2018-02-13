@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>House Numbers</title>
+</head>
+<body>
+	<script src="houseNumbers.js"></script>
+	<style type="text/css">
+		button{
+			width: 100px;
+			height: 100px;
+			font-size: 30px;
+		}
+	</style>
+	<button onclick="reset(); roll();" style="width: initial; height: initial; font-size: initial;">Start a new round</button><br>
+	<p>You</p><br>
+	<button id="hundred" onclick="placeNumber('hundred')"></button>
+	<button id="ten" onclick="placeNumber('ten')"></button>
+	<button id="one" onclick="placeNumber('one')"></button><br>
+	<p>Computer</p><br>
+	<button id="comhundred"></button>
+	<button id="comten"></button>
+	<button id="comone"></button><br>
+	<p id="stats">Overall winner:<br>Player Wins:<br>Computer Wins:<br>Winrate:</p>
+	<button id="currentNumber" style="position: absolute; right: 25%; top: 50%; border: 2px solid black; text-align: center;"></button>
+</body>
+</html>
