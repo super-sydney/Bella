@@ -37,12 +37,44 @@ function evalScore(){
 	}
 }
 
-function computer(){
-	setTimeout(function(){document.getElementById("comone").innerHTML = random();}, 1500);
-	setTimeout(function(){document.getElementById("comten").innerHTML = random();}, 1000);
-	setTimeout(function(){document.getElementById("comhundred").innerHTML = random();}, 1200);
-	setTimeout(function(){evalScore();}, 3000);
+function placeR(bool){
+	let r = random();
+	if (r <= 2){
+		if (document.getElementById('comone').innerHTML === ''){
+			document.getElementById('comone').innerHTML = r;
+		}else if (document.getElementById('comten').innerHTML === ''){
+			document.getElementById('comten').innerHTML = r;
+		}else{
+			document.getElementById('comhundred').innerHTML = r;
+		}
+	}else if (r >= 5){
+		if (document.getElementById('comhundred').innerHTML === ''){
+			document.getElementById('comhundred').innerHTML = r;
+		}else if (document.getElementById('comten').innerHTML === ''){
+			document.getElementById('comten').innerHTML = r;
+		}else{
+			document.getElementById('comone').innerHTML = r;
+		}
+	}else{
+		if (document.getElementById('comten').innerHTML === ''){
+			document.getElementById('comten').innerHTML = r;
+		}else if (document.getElementById('comone').innerHTML === ''){
+			document.getElementById('comone').innerHTML = r;
+		}else{
+			document.getElementById('comhundred').innerHTML = r;
+		}
+	}
+	if (bool){
+		setTimeout(function(){evalScore();}, 1500);
+	}
 }
+
+function computer(){
+	setTimeout(function(){placeR();}, 2400);
+	setTimeout(function(){placeR();}, 1500);
+	setTimeout(function(){placeR(true);}, 1200);
+}
+
 
 function placeNumber(id){
 	if (document.getElementById(id).innerHTML === ''){
